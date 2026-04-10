@@ -25,7 +25,7 @@ public class ObfuscatorEngine {
     private static final String TAG = "KreyziEngine";
     private static final String LUA_DIR = "lua"; // assets sub-folder
     private static final String ASSETS_VERSION_FILE = "assets_version.txt";
-    private static final int    CURRENT_VERSION = 1;
+    private static final int    CURRENT_VERSION = 2;
 
     public interface ProgressListener {
         void onLog(String line);
@@ -88,8 +88,9 @@ public class ObfuscatorEngine {
         String error  = null;
 
         try {
-            // 4. Create LuaJ globals (full JSE platform gives us io, os, debug, math, etc.)
-            Globals globals = JsePlatform.standardGlobals();
+            // 4. Create LuaJ globals — debugGlobals() includes the debug library
+            //    (standardGlobals() omits it, causing "index expected, got nil" on debug.getinfo)
+            Globals globals = JsePlatform.debugGlobals();
 
             // 5. Inject our variables
             globals.set("KREYZI_BASE",   LuaString.valueOf(basePath));

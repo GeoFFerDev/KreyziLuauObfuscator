@@ -17,13 +17,14 @@ package.path =
     package.path
 
 -- ── 2. Patch debug.getinfo so script_path() helpers work ──────────────────
--- prometheus.lua and cli.lua both do:
---   debug.getinfo(2,"S").source:sub(2):match("(.*[/\\])")
--- We return a fake source pointing at base/ so the match gives back base/
-local _real_debug_getinfo = debug and debug.getinfo
+-- LuaJ standardGlobals() omits the debug lib — ensure the table exists
+if type(debug) ~= "table" then
+    _G.debug = {}
+end
+debug = _G.debug  -- re-bind local after possible assignment
+local _real_debug_getinfo = debug.getinfo
 debug.getinfo = function(level, what)
     if what == "S" then
-        -- source:sub(2) → base/prometheus.lua → match → base/
         return { source = "@" .. base .. "prometheus.lua" }
     end
     if _real_debug_getinfo then
