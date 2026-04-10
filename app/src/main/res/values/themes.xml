@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.KreyziObfuscator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent_green</item>
+        <item name="colorPrimaryDark">@color/bg_dark</item>
+        <item name="colorAccent">@color/accent_green</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="spinnerStyle">@style/KreyziSpinner</item>
+    </style>
+
+    <style name="KreyziSpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@color/code_bg</item>
+        <item name="android:popupBackground">@color/card_bg</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+</resources>

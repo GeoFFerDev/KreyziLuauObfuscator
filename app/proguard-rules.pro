@@ -1,0 +1,2 @@
+-keep class org.luaj.** { *; }
+-dontwarn org.luaj.**

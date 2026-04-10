@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-files-path name="obfuscated_outputs" path="." />
+    <files-path name="internal_outputs" path="." />
+</paths>
