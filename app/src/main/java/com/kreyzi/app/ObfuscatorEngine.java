@@ -25,7 +25,7 @@ public class ObfuscatorEngine {
     private static final String TAG = "KreyziEngine";
     private static final String LUA_DIR = "lua"; // assets sub-folder
     private static final String ASSETS_VERSION_FILE = "assets_version.txt";
-    private static final int    CURRENT_VERSION = 2;
+    private static final int    CURRENT_VERSION = 3;
 
     public interface ProgressListener {
         void onLog(String line);

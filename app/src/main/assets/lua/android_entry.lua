@@ -7,6 +7,9 @@
 
 local base = KREYZI_BASE
 
+-- LuaJ has no CLI arg table; config.lua iterates it so provide an empty one
+if not arg then _G.arg = {} end
+
 -- ── 1. Set up package.path ─────────────────────────────────────────────────
 -- require("prometheus")         → base/prometheus.lua
 -- require("prometheus.pipeline") → base/prometheus/pipeline.lua
